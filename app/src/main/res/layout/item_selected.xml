@@ -7,7 +7,7 @@
         android:id="@+id/txtSelected"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
+        android:background="#DCDCDC"
         android:padding="10dp"
         android:text="Danh mục"
         android:textColor="@color/black" />

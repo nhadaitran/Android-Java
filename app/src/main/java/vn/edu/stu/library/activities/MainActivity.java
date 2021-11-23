@@ -29,7 +29,7 @@ import vn.edu.stu.library.model.categoryDTO;
 import vn.edu.stu.library.util.AppDatabase;
 import vn.edu.stu.library.util.DBConfigUtil;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends OptionsMenuActivity {
     AppDatabase db;
     Button btnCancel, btnEditCat;
     List<bookDTO> bookList = new ArrayList<>();
@@ -163,10 +163,16 @@ public class MainActivity extends AppCompatActivity {
         db = AppDatabase.getAppDatabase(this);
         bookDAO = db.bookDAO();
         categoryDAO = db.categoryDAO();
-        getListCategory();
+        getList();
     }
 
-    private void getListCategory() {
+    private void getList() {
+        bookList.clear();
+        categoryList.clear();
+        List<bookEntity> bookEntityList = bookDAO.getAll();
+        for (bookEntity bookEntity : bookEntityList) {
+            bookList.add(covertAtBookEntityForBookDTO(bookEntity));
+        }
         List<categoryEntity> categoryEntityList = categoryDAO.getAll();
         for (categoryEntity categoryEntity : categoryEntityList) {
             categoryList.add(new categoryDTO(categoryEntity.getTitle()));
@@ -199,11 +205,18 @@ public class MainActivity extends AppCompatActivity {
                             "Thêm sách thành công!",
                             Toast.LENGTH_SHORT
                     ).show();
+                    loadDatabase();
                 }
                 if (data.hasExtra("EDITED")) {
                     bookDTO book = (bookDTO) data.getSerializableExtra("EDITED");
                     bookList.set(bookPosition, book);
                     showListView();
+                    Toast.makeText(
+                            this,
+                            "Chỉnh sừa sách thành công!",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                    loadDatabase();
                 }
                 if (data.hasExtra("DELETED")) {
                     bookDTO book = (bookDTO) data.getSerializableExtra("DELETED");

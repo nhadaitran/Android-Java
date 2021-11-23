@@ -15,7 +15,7 @@ import vn.edu.stu.library.R;
 import vn.edu.stu.library.model.bookDTO;
 import vn.edu.stu.library.util.BitmapUtil;
 
-public class BookInfoActivity extends AppCompatActivity {
+public class BookInfoActivity extends OptionsMenuActivity {
     TextView txtTitle, txtAuthor, txtCategory;
     Button btnEdit;
     ImageView imgView;
@@ -78,7 +78,9 @@ public class BookInfoActivity extends AppCompatActivity {
                     txtTitle.setText(book.getTitle());
                     txtAuthor.setText(book.getAuthor());
                     txtCategory.setText(book.getCategory());
-                    imgView.setImageBitmap(BitmapUtil.getBitmapFromString(book.getImage()));
+                    if(book.getImage()!=null){
+                        imgView.setImageBitmap(BitmapUtil.getBitmapFromString(book.getImage()));
+                    }
                     Toast.makeText(
                             this,
                             "Chỉnh sửa sách thành công!",

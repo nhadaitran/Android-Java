@@ -14,9 +14,9 @@
         android:layout_marginTop="100dp"
         android:layout_marginRight="20dp"
         android:hint="Tiêu đề sách"
+        app:layout_constraintBottom_toTopOf="@id/txtAuthor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/txtAuthor" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/txtAuthor"
@@ -25,15 +25,16 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Tác giả"
+        app:layout_constraintBottom_toTopOf="@id/btnAddImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnAddImage" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imgView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="30dp"
+        android:src="@drawable/ic_image"
         app:layout_constraintBottom_toTopOf="@id/spCategory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,9 +46,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toTopOf="@id/txtTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/txtTitle"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnAddImage"
@@ -56,9 +57,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Thêm ảnh"
+        app:layout_constraintBottom_toTopOf="@id/btnEditBook"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnEditBook"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnEditBook"
@@ -67,9 +68,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="Lưu sách"
+        app:layout_constraintBottom_toTopOf="@id/btnDeleteBook"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnDeleteBook" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnDeleteBook"

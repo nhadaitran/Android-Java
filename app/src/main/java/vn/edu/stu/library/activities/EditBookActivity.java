@@ -40,7 +40,7 @@ import vn.edu.stu.library.util.AppDatabase;
 import vn.edu.stu.library.util.DBConfigUtil;
 import vn.edu.stu.library.util.BitmapUtil;
 
-public class EditBookActivity extends AppCompatActivity {
+public class EditBookActivity extends OptionsMenuActivity {
     AppDatabase db;
     EditText txtTitle, txtAuthor;
     Button btnEditBook, btnAddImage, btnDeleteBook;
@@ -71,6 +71,7 @@ public class EditBookActivity extends AppCompatActivity {
         txtAuthor.setText(book.getAuthor());
         if (book.getImage() != null) {
             imgView.setImageBitmap(BitmapUtil.getBitmapFromString(book.getImage()));
+            bitmap = BitmapUtil.getBitmapFromString(book.getImage());
         }
         id = book.getId();
     }
@@ -183,11 +184,15 @@ public class EditBookActivity extends AppCompatActivity {
     private void editBook() {
         String title = txtTitle.getText().toString().trim();
         String author = txtAuthor.getText().toString().trim();
-
+        bookDTO book;
         if (TextUtils.isEmpty(title) || TextUtils.isEmpty(author) || TextUtils.isEmpty(category)) {
             return;
         }
-        bookDTO book = new bookDTO(id, title, author, category, BitmapUtil.getStringFromBitmap(bitmap));
+        if (bitmap != null) {
+            book = new bookDTO(id, title, author, category, BitmapUtil.getStringFromBitmap(bitmap));
+        }else{
+            book = new bookDTO(id, title, author, category, null);
+        }
         bookEntity bookEntity = covertAtBookDTOForBookEntity(book);
         db.bookDAO().update(bookEntity);
         Intent intent = getIntent();
@@ -206,7 +211,7 @@ public class EditBookActivity extends AppCompatActivity {
             try {
                 InputStream input = getContentResolver().openInputStream(selectedImageUri);
                 bitmap = BitmapFactory.decodeStream(input);
-                bitmap = BitmapUtil.resizeBitmap(bitmap,500);
+                bitmap = BitmapUtil.resizeBitmap(bitmap, 500);
                 imgView.setImageBitmap(bitmap);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -234,7 +239,7 @@ public class EditBookActivity extends AppCompatActivity {
     public void checkPermission(String permission, int requestCode) {
         if (ContextCompat.checkSelfPermission(EditBookActivity.this, permission) == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(EditBookActivity.this, new String[]{permission}, requestCode);
-        }else{
+        } else {
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_PICK);

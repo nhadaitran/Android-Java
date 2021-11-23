@@ -13,6 +13,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginBottom="50dp"
         android:text="Thể loại: "
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnEdit"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -21,6 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/btnEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,6 +34,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="30dp"
+        android:src="@drawable/ic_image"
         app:layout_constraintBottom_toTopOf="@+id/txtTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +48,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginBottom="30dp"
         android:text="Tác giả:"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -54,6 +60,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginBottom="30dp"
         android:text="Tiêu đề:"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtAuthor"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -62,6 +70,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/txtAuthor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -72,6 +81,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

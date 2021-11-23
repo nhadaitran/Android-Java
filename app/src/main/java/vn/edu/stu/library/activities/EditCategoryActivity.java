@@ -23,7 +23,7 @@ import vn.edu.stu.library.model.categoryDTO;
 import vn.edu.stu.library.util.AppDatabase;
 import vn.edu.stu.library.util.DBConfigUtil;
 
-public class EditCategoryActivity extends AppCompatActivity {
+public class EditCategoryActivity extends OptionsMenuActivity {
     Button btnAddCategory, btnEditCategory;
     ListView lvCategory;
     EditText txtCategory = null;

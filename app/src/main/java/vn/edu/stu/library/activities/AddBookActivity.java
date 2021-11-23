@@ -38,7 +38,7 @@ import vn.edu.stu.library.util.AppDatabase;
 import vn.edu.stu.library.util.DBConfigUtil;
 import vn.edu.stu.library.util.BitmapUtil;
 
-public class AddBookActivity extends AppCompatActivity {
+public class AddBookActivity extends OptionsMenuActivity {
     AppDatabase db;
     EditText txtTitle, txtAuthor;
     Button btnAddBook, btnAddImage;
@@ -101,6 +101,7 @@ public class AddBookActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 category = adapter.getItem(position).getTitle_cat();
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -117,10 +118,15 @@ public class AddBookActivity extends AppCompatActivity {
     private void addBook() {
         String title = txtTitle.getText().toString().trim();
         String author = txtAuthor.getText().toString().trim();
+        bookDTO book;
         if (TextUtils.isEmpty(title) || TextUtils.isEmpty(author) || TextUtils.isEmpty(category)) {
             return;
         }
-        bookDTO book = new bookDTO(null, title, author, category, BitmapUtil.getStringFromBitmap(bitmap));
+        if (bitmap != null) {
+            book = new bookDTO(null, title, author, category, BitmapUtil.getStringFromBitmap(bitmap));
+        } else {
+            book = new bookDTO(null, title, author, category, null);
+        }
         bookEntity bookEntity = covertAtBookDTOForBookEntity(book);
         db.bookDAO().insert(bookEntity);
         Intent intent = getIntent();
@@ -138,7 +144,7 @@ public class AddBookActivity extends AppCompatActivity {
             try {
                 InputStream input = getContentResolver().openInputStream(selectedImageUri);
                 bitmap = BitmapFactory.decodeStream(input);
-                bitmap = BitmapUtil.resizeBitmap(bitmap,500);
+                bitmap = BitmapUtil.resizeBitmap(bitmap, 500);
                 imgView.setImageBitmap(bitmap);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -166,7 +172,7 @@ public class AddBookActivity extends AppCompatActivity {
     public void checkPermission(String permission, int requestCode) {
         if (ContextCompat.checkSelfPermission(AddBookActivity.this, permission) == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(AddBookActivity.this, new String[]{permission}, requestCode);
-        }else{
+        } else {
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_PICK);
