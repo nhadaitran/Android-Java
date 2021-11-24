@@ -2,7 +2,6 @@
     <string name="app_name">Library</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="map_key" translatable="false">AIzaSyArefYguYZ0RclPu75RG7TTh2B-sm2q1Fk</string>
     <string name="permission_granted">Permission Has Been Granted !!!</string>
     <string name="permission_denied">Permission Has Been Denied !!!</string>
     <string name="error_empty">Please fill out the form !</string>
@@ -36,7 +35,7 @@
     <string name="added">Data has been added</string>
     <string name="university">Saigon Technology University</string>
     <string name="in_progess">Working in progress</string>
-
+    <string name="title_activity_maps">MapsActivity</string>
 
 
 </resources>

@@ -1,9 +1,9 @@
 package vn.edu.stu.library.activities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import android.Manifest;
 import android.content.Intent;
@@ -14,31 +14,19 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import vn.edu.stu.library.R;
 
-public class AboutActivity extends OptionsMenuActivity implements OnMapReadyCallback {
+public class AboutActivity extends OptionsMenuActivity {
     private static final int REQUEST_CALL = 1;
     TextView tvPhone;
-    GoogleMap gMap;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         tvPhone = findViewById(R.id.tvPhone);
-
-        SupportMapFragment supportMapFragment = (SupportMapFragment)
-                getSupportFragmentManager().findFragmentById(R.id.map);
-        supportMapFragment.getMapAsync(this);
+        Fragment fragment = new MapsFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.map,fragment).commit();
         addEvents();
     }
 
@@ -73,24 +61,5 @@ public class AboutActivity extends OptionsMenuActivity implements OnMapReadyCall
                 Toast.makeText(AboutActivity.this, getResources().getString(R.string.permission_denied), Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        LatLng DHCNSG = new LatLng(10.738218552601982, 106.67783209733467);
-        gMap = googleMap;
-        gMap.addMarker(new MarkerOptions().position(DHCNSG).title(getResources().getString(R.string.university)));
-        gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(@NonNull LatLng latLng) {
-                MarkerOptions markerOptions = new MarkerOptions();
-                markerOptions.position(latLng);
-                markerOptions.title(latLng.latitude + " : " + latLng.longitude);
-                gMap.clear();
-                gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
-                gMap.addMarker(markerOptions);
-
-            }
-        });
     }
 }

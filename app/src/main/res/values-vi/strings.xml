@@ -3,7 +3,6 @@
     <string name="app_name">Thư Viện Sách</string>
     <string name="yes">Đồng ý</string>
     <string name="no">Không</string>
-    <string name="map_key" translatable="false">AIzaSyArefYguYZ0RclPu75RG7TTh2B-sm2q1Fk</string>
     <string name="permission_granted">Quyền đã được cấp !!!</string>
     <string name="permission_denied">Quyền truy cập bị từ chối !!!</string>
     <string name="error_empty">Vui lòng điền đầy đủ thông tin !</string>
@@ -16,7 +15,7 @@
     <string name="about">Giới thiệu</string>
     <string name="about_detail">Thông tin cá nhân</string>
     <string name="login">Đăng nhập</string>
-    <string name="eixt">Thoát ứng dụng</string>
+    <string name="eixt">Thoát</string>
     <string name="book_add">Thêm sách</string>
     <string name="book_info">Thông tin sách</string>
     <string name="book_edit">Chỉnh sửa sách</string>

@@ -38,11 +38,6 @@ public class DBConfigUtil {
                     os.write(buffer, 0, length);
                 }
                 os.flush();
-                Toast.makeText(
-                        context,
-                        "Đã chép CSDL xong",
-                        Toast.LENGTH_LONG
-                ).show();
             } catch (Exception e) {
                 Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
             } finally {
