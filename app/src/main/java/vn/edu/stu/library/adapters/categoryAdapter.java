@@ -20,7 +20,7 @@ public class categoryAdapter extends ArrayAdapter<categoryDTO> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_selected, parent, false);
+        convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_item_selected, parent, false);
         TextView txtSelected = convertView.findViewById(R.id.txtSelected);
         categoryDTO category = this.getItem(position);
         if (category != null){
@@ -31,7 +31,7 @@ public class categoryAdapter extends ArrayAdapter<categoryDTO> {
 
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category, parent, false);
+        convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_item_category, parent, false);
         TextView txtCategory = convertView.findViewById(R.id.txtCategory);
         categoryDTO category = this.getItem(position);
         if (category != null){

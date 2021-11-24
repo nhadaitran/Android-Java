@@ -70,7 +70,7 @@ public class AboutActivity extends OptionsMenuActivity implements OnMapReadyCall
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 makePhoneCall();
             } else {
-                Toast.makeText(AboutActivity.this, "Quyền bị từ chối!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AboutActivity.this, getResources().getString(R.string.permission_denied), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -79,7 +79,7 @@ public class AboutActivity extends OptionsMenuActivity implements OnMapReadyCall
     public void onMapReady(@NonNull GoogleMap googleMap) {
         LatLng DHCNSG = new LatLng(10.738218552601982, 106.67783209733467);
         gMap = googleMap;
-        gMap.addMarker(new MarkerOptions().position(DHCNSG).title("Trường Đại học Công nghệ Sài Gòn"));
+        gMap.addMarker(new MarkerOptions().position(DHCNSG).title(getResources().getString(R.string.university)));
         gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(@NonNull LatLng latLng) {

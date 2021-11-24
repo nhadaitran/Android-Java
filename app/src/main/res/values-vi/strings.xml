@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Thư Viện Sách</string>
+    <string name="yes">Đồng ý</string>
+    <string name="no">Không</string>
     <string name="map_key" translatable="false">AIzaSyArefYguYZ0RclPu75RG7TTh2B-sm2q1Fk</string>
-    <string name="a"></string>
+    <string name="permission_granted">Quyền đã được cấp !!!</string>
+    <string name="permission_denied">Quyền truy cập bị từ chối !!!</string>
+    <string name="error_empty">Vui lòng điền đầy đủ thông tin !</string>
+    <string name="error_exists">Thông tin đã tồn tại !</string>
+    <string name="error_notexists">Thông tin không tồn tại, không thể thay đổi !</string>
+    <string name="error_notselect">Vui lòng chọn thông tin mà bạn muốn thay đổi !</string>
+    <string name="error_login">Sai thông tin tài khoản !</string>
+    <string name="ask_edit">Bạn có chắc là muốn thay đổi ?</string>
+    <string name="ask_delete">Bạn có chắc là muốn xoá ?</string>
+    <string name="about">Giới thiệu</string>
+    <string name="about_detail">Thông tin cá nhân</string>
+    <string name="login">Đăng nhập</string>
+    <string name="eixt">Thoát ứng dụng</string>
+    <string name="book_add">Thêm sách</string>
+    <string name="book_info">Thông tin sách</string>
+    <string name="book_edit">Chỉnh sửa sách</string>
+    <string name="book_title">Tiêu đề</string>
+    <string name="book_author">Tác giả</string>
+    <string name="book_genres">Thể loại</string>
+    <string name="book_save">Lưu sách</string>
+    <string name="book_delete">Xoá sách</string>
+    <string name="book_image_add">Thêm ảnh</string>
+    <string name="cat_title">Tên danh mục</string>
+    <string name="cat_edit">Chỉnh sửa danh mục</string>
+    <string name="cat_add">Thêm danh mục</string>
+    <string name="hold_del">Ấn giữ nội dung để xoá !</string>
+    <string name="username">Tên đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="changed">Dữ liệu đã được thay đổi thành công</string>
+    <string name="deleted">Dữ liệu đã được xoá thành công</string>
+    <string name="added">Dữ liệu đã được thêm thành công</string>
+    <string name="university">Trường đại học Công nghệ Sài Gòn</string>
+    <string name="in_progess">Code lỗi, đang chỉnh sửa!</string>
 </resources>

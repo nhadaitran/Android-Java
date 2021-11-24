@@ -2,7 +2,6 @@ package vn.edu.stu.library.activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -67,7 +66,7 @@ public class AddBookActivity extends OptionsMenuActivity {
         spCategory = findViewById(R.id.spCategory);
         imgView = (ImageView) findViewById(R.id.imgView);
         loadDatabase();
-        adapter = new categoryAdapter(this, R.layout.item_selected, categoryList);
+        adapter = new categoryAdapter(this, R.layout.activity_item_selected, categoryList);
         spCategory.setAdapter(adapter);
     }
 
@@ -164,7 +163,7 @@ public class AddBookActivity extends OptionsMenuActivity {
                 intent.setAction(Intent.ACTION_PICK);
                 startActivityForResult(intent, request);
             } else {
-                Toast.makeText(AddBookActivity.this, "Quyền truy cập bộ nhớ bị từ chối!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddBookActivity.this, getResources().getString(R.string.permission_denied), Toast.LENGTH_SHORT).show();
             }
         }
     }

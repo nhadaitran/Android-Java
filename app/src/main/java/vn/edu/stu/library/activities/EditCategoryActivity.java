@@ -1,7 +1,6 @@
 package vn.edu.stu.library.activities;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -48,7 +47,7 @@ public class EditCategoryActivity extends OptionsMenuActivity {
         lvCategory = findViewById(R.id.lvCategory);
         txtCategory = findViewById(R.id.txtCategory);
         loadDatabase();
-        adapter = new categoryAdapter(this, R.layout.item_category, categoryList);
+        adapter = new categoryAdapter(this, R.layout.activity_item_category, categoryList);
         lvCategory.setAdapter(adapter);
     }
 
@@ -80,7 +79,7 @@ public class EditCategoryActivity extends OptionsMenuActivity {
                 if (newTitle.length() == 0) {
                     Toast.makeText(
                             EditCategoryActivity.this,
-                            "Vui lòng nhập tên danh mục mới",
+                            getResources().getString(R.string.error_empty),
                             Toast.LENGTH_SHORT
                     ).show();
                 } else {
@@ -88,7 +87,7 @@ public class EditCategoryActivity extends OptionsMenuActivity {
                         if (newTitle.compareToIgnoreCase(item.getTitle_cat()) == 0) {
                             Toast.makeText(
                                     EditCategoryActivity.this,
-                                    "Đã tồn tại danh mục, không thể thêm!!!",
+                                    getResources().getString(R.string.error_exists),
                                     Toast.LENGTH_SHORT
                             ).show();
                             flag = 1;
@@ -101,7 +100,7 @@ public class EditCategoryActivity extends OptionsMenuActivity {
                         categoryDTO newCat = new categoryDTO(newTitle);
                         Toast.makeText(
                                 EditCategoryActivity.this,
-                                "Thêm danh mục thành công!",
+                                getResources().getString(R.string.added),
                                 Toast.LENGTH_SHORT
                         ).show();
                         categoryList.add(newCat);
@@ -119,7 +118,7 @@ public class EditCategoryActivity extends OptionsMenuActivity {
                 if (pos == -1) {
                     Toast.makeText(
                             EditCategoryActivity.this,
-                            "Vui lòng chọn danh mục muốn sửa",
+                            getResources().getString(R.string.error_notselect),
                             Toast.LENGTH_SHORT
                     ).show();
                 } else {
@@ -127,7 +126,7 @@ public class EditCategoryActivity extends OptionsMenuActivity {
                         if (newTitle.compareToIgnoreCase(item.getTitle_cat()) == 0) {
                             Toast.makeText(
                                     EditCategoryActivity.this,
-                                    "Đã tồn tại danh mục, không thể sửa!!!",
+                                    getResources().getString(R.string.error_exists),
                                     Toast.LENGTH_SHORT
                             ).show();
                             flag = 1;
@@ -139,7 +138,7 @@ public class EditCategoryActivity extends OptionsMenuActivity {
                         selected.setTitle_cat(newTitle);
                         Toast.makeText(
                                 EditCategoryActivity.this,
-                                "Chỉnh sửa danh mục thành công!",
+                                getResources().getString(R.string.changed),
                                 Toast.LENGTH_SHORT
                         ).show();
                         categoryList.set(pos, selected);
@@ -169,21 +168,21 @@ public class EditCategoryActivity extends OptionsMenuActivity {
                     selected = adapter.getItem(position);
                 }
                 AlertDialog.Builder builder = new AlertDialog.Builder(EditCategoryActivity.this);
-                builder.setTitle("Bạn có chắc muốn xoá danh mục này không?").setIcon(R.drawable.ic_delete);
+                builder.setTitle(getResources().getString(R.string.ask_delete)).setIcon(R.drawable.ic_delete);
                 builder.setCancelable(false);
-                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         deleteCategory();
                         Toast.makeText(
                                 EditCategoryActivity.this,
-                                "Đã xoá danh mục thành công!",
+                                getResources().getString(R.string.deleted),
                                 Toast.LENGTH_SHORT
                         ).show();
                         adapter.notifyDataSetChanged();
                     }
                 });
-                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();

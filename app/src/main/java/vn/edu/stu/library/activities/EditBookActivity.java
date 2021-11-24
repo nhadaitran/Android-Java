@@ -3,7 +3,6 @@ package vn.edu.stu.library.activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -85,7 +84,7 @@ public class EditBookActivity extends OptionsMenuActivity {
         spCategory = findViewById(R.id.spCategory);
         imgView = findViewById(R.id.imgView);
         loadDatabase();
-        adapter = new categoryAdapter(this, R.layout.item_selected, categoryList);
+        adapter = new categoryAdapter(this, R.layout.activity_item_selected, categoryList);
         spCategory.setAdapter(adapter);
     }
 
@@ -130,15 +129,15 @@ public class EditBookActivity extends OptionsMenuActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(EditBookActivity.this);
-                builder.setTitle("Bạn có chắc muốn sửa sách này không?").setIcon(R.drawable.ic_edit);
+                builder.setTitle(getResources().getString(R.string.ask_edit)).setIcon(R.drawable.ic_edit);
                 builder.setCancelable(false);
-                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         editBook();
                     }
                 });
-                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
@@ -152,15 +151,15 @@ public class EditBookActivity extends OptionsMenuActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(EditBookActivity.this);
-                builder.setTitle("Bạn có chắc muốn xoá sách này không?").setIcon(R.drawable.ic_delete);
+                builder.setTitle(getResources().getString(R.string.ask_delete)).setIcon(R.drawable.ic_delete);
                 builder.setCancelable(false);
-                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         deleteBook();
                     }
                 });
-                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
@@ -231,7 +230,7 @@ public class EditBookActivity extends OptionsMenuActivity {
                 intent.setAction(Intent.ACTION_PICK);
                 startActivityForResult(intent, request);
             } else {
-                Toast.makeText(EditBookActivity.this, "Quyền truy cập bộ nhớ bị từ chối!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditBookActivity.this, getResources().getString(R.string.permission_denied), Toast.LENGTH_SHORT).show();
             }
         }
     }

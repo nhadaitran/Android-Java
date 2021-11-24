@@ -1,7 +1,6 @@
 package vn.edu.stu.library.activities;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -149,7 +148,7 @@ public class MainActivity extends OptionsMenuActivity {
         btnCancel = findViewById(R.id.btnCancel);
         btnEditCat = findViewById(R.id.btnEditCat);
         loadDatabase();
-        adapter = new categoryAdapter(this, R.layout.item_selected, categoryList);
+        adapter = new categoryAdapter(this, R.layout.activity_item_selected, categoryList);
         spCategory.setAdapter(adapter);
     }
 
@@ -202,7 +201,7 @@ public class MainActivity extends OptionsMenuActivity {
                     showListView();
                     Toast.makeText(
                             this,
-                            "Thêm sách thành công!",
+                            getResources().getString(R.string.added),
                             Toast.LENGTH_SHORT
                     ).show();
                     loadDatabase();
@@ -213,7 +212,7 @@ public class MainActivity extends OptionsMenuActivity {
                     showListView();
                     Toast.makeText(
                             this,
-                            "Chỉnh sừa sách thành công!",
+                            getResources().getString(R.string.changed),
                             Toast.LENGTH_SHORT
                     ).show();
                     loadDatabase();
@@ -224,7 +223,7 @@ public class MainActivity extends OptionsMenuActivity {
                     showListView();
                     Toast.makeText(
                             this,
-                            "Xoá sách thành công!",
+                            getResources().getString(R.string.deleted),
                             Toast.LENGTH_SHORT
                     ).show();
                 }

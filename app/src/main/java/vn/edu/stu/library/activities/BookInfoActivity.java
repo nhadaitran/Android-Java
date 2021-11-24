@@ -83,7 +83,7 @@ public class BookInfoActivity extends OptionsMenuActivity {
                     }
                     Toast.makeText(
                             this,
-                            "Chỉnh sửa sách thành công!",
+                            getResources().getString(R.string.changed),
                             Toast.LENGTH_SHORT
                     ).show();
                 }

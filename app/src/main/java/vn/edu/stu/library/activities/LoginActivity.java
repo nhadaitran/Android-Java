@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(
                             LoginActivity.this,
-                            "Sai thông tin tài khoản hoặc mật khẩu!",
+                            getResources().getString(R.string.error_login),
                             Toast.LENGTH_SHORT
                     ).show();
                 }

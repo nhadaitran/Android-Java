@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".adapters.bookAdapter">
 
     <ImageView
@@ -33,6 +34,7 @@
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/gray"
         app:layout_constraintStart_toEndOf="@id/imgView"
         app:layout_constraintBottom_toTopOf="@id/txtCategory" />
 
@@ -41,6 +43,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="20dp"
+        android:textColor="@color/gray"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,8 +56,10 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="#00FF00"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgView"
+        android:layout_margin="10dp"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

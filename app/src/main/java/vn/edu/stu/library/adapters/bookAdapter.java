@@ -17,7 +17,7 @@ import vn.edu.stu.library.R;
 import vn.edu.stu.library.model.bookDTO;
 import vn.edu.stu.library.util.BitmapUtil;
 
-public class bookAdapter extends ArrayAdapter<bookDTO> {
+public class bookAdapter extends ArrayAdapter<bookDTO>{
     private List<bookDTO> book_List;
 
     public bookAdapter(@NonNull Context context, int resource, @NonNull List<bookDTO> book_List) {
