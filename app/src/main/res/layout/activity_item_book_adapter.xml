@@ -34,7 +34,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/imgView"
-        app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+        app:layout_constraintBottom_toTopOf="@id/txtCategory" />
 
     <TextView
         android:id="@+id/txtCategory"

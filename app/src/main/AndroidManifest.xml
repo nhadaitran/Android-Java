@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="vn.edu.stu.library">
+    package="vn.edu.stu.library" >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -12,15 +16,24 @@
         android:largeHeap="true"
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Library">
+        android:theme="@style/Theme.Library" >
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key"/>
         <activity
-            android:name=".activities.LoginActivity"
-            android:exported="true">
+            android:name=".activities.AboutActivity"
+            android:exported="true"
+            android:label="Giới thiệu"
+            android:parentActivityName=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="true" >
+
         </activity>
         <activity
             android:name=".activities.EditCategoryActivity"
@@ -48,7 +61,7 @@
         <activity
             android:name=".activities.MainActivity"
             android:exported="true"
-            android:label="Thư viện"></activity>
+            android:label="Thư viện" />
     </application>
 
 </manifest>

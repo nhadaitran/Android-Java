@@ -3,6 +3,7 @@ package vn.edu.stu.library.entity;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 
@@ -13,6 +14,7 @@ public class categoryEntity {
     @NonNull
     private String title;
 
+    @Ignore
     public categoryEntity() {
     }
 

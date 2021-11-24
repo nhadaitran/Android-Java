@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 
@@ -17,7 +18,7 @@ public class bookEntity {
         this.category = category;
         this.image = image;
     }
-
+    @Ignore
     public bookEntity() {
     }
 
