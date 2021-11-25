@@ -6,6 +6,7 @@
     <string name="permission_denied">Permission Has Been Denied !!!</string>
     <string name="error_empty">Please fill out the form !</string>
     <string name="error_exists">Item already existed !</string>
+    <string name="cannot_delete">Cannot Delete !</string>
     <string name="error_notexists">Item does not exist, cannot be changed !</string>
     <string name="error_notselect">Please select an item you want to change !</string>
     <string name="error_login">Wrong username or password !</string>

@@ -17,6 +17,7 @@ import java.util.List;
 import vn.edu.stu.library.R;
 import vn.edu.stu.library.adapters.categoryAdapter;
 import vn.edu.stu.library.dao.categoryDAO;
+import vn.edu.stu.library.entity.bookEntity;
 import vn.edu.stu.library.entity.categoryEntity;
 import vn.edu.stu.library.model.categoryDTO;
 import vn.edu.stu.library.util.AppDatabase;
@@ -173,21 +174,35 @@ public class EditCategoryActivity extends OptionsMenuActivity {
                 builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        deleteCategory();
-                        Toast.makeText(
-                                EditCategoryActivity.this,
-                                getResources().getString(R.string.deleted),
-                                Toast.LENGTH_SHORT
-                        ).show();
-                        adapter.notifyDataSetChanged();
+                        List<bookEntity> listBook = db.bookDAO().getCategory(selected.getTitle_cat());
+                        if(listBook.isEmpty()) {
+                            deleteCategory();
+                            Toast.makeText(
+                                    EditCategoryActivity.this,
+                                    getResources().getString(R.string.deleted),
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                            adapter.notifyDataSetChanged();
+                        }else  {
+                            Toast.makeText(
+                                    EditCategoryActivity.this,
+                                    getResources().getString(R.string.cannot_delete),
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                        }
+                        listBook.clear();
                     }
                 });
-                builder.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
+                builder.setNegativeButton(
+
+                        getResources().
+
+                                getString(R.string.no), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
                 AlertDialog dialog = builder.create();
                 dialog.show();
                 return true;
@@ -200,7 +215,7 @@ public class EditCategoryActivity extends OptionsMenuActivity {
         db.categoryDAO().delete(categoryEntity);
         adapter.remove(selected);
         categoryList.remove(selected);
-        pos=-1;
+        pos = -1;
         txtCategory.setText("");
     }
 }

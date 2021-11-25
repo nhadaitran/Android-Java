@@ -7,6 +7,7 @@
     <string name="permission_denied">Quyền truy cập bị từ chối !!!</string>
     <string name="error_empty">Vui lòng điền đầy đủ thông tin !</string>
     <string name="error_exists">Thông tin đã tồn tại !</string>
+    <string name="cannot_delete">Tồn tại sản phẩm có cùng danh mục, không thể xoá !</string>
     <string name="error_notexists">Thông tin không tồn tại, không thể thay đổi !</string>
     <string name="error_notselect">Vui lòng chọn thông tin mà bạn muốn thay đổi !</string>
     <string name="error_login">Sai thông tin tài khoản !</string>
